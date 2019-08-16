@@ -1057,7 +1057,7 @@ namespace SQLite
 		/// A queryable object that is able to translate Where, OrderBy, and Take
 		/// queries into native SQL.
 		/// </returns>
-		public TableQuery<T> Table<T> () where T : new()
+		public TableQuery<T> Table<T> ()
 		{
 			return new TableQuery<T> (this);
 		}

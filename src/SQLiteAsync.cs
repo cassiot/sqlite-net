@@ -254,7 +254,6 @@ namespace SQLite
 		/// Whether the table was created or migrated.
 		/// </returns>
 		public Task<CreateTableResult> CreateTableAsync<T> (CreateFlags createFlags = CreateFlags.None)
-			where T : new()
 		{
 			return WriteAsync (conn => conn.CreateTable<T> (createFlags));
 		}
@@ -1006,7 +1005,6 @@ namespace SQLite
 		/// queries into native SQL.
 		/// </returns>
 		public AsyncTableQuery<T> Table<T> ()
-			where T : new()
 		{
 			//
 			// This isn't async as the underlying connection doesn't go out to the database
@@ -1141,7 +1139,6 @@ namespace SQLite
 	/// Query to an asynchronous database connection.
 	/// </summary>
 	public class AsyncTableQuery<T>
-		where T : new()
 	{
 		TableQuery<T> _innerQuery;
 
