@@ -965,7 +965,7 @@ namespace SQLite
 		/// <returns>
 		/// An enumerable with one result for each row returned by the query.
 		/// </returns>
-		public List<T> Query<T> (string query, params object[] args) where T : new()
+		public List<T> Query<T> (string query, params object[] args) //where T : new()
 		{
 			var cmd = CreateCommand (query, args);
 			return cmd.ExecuteQuery<T> ();
@@ -2862,7 +2862,7 @@ namespace SQLite
 				}
 
 				while (SQLite3.Step (stmt) == SQLite3.Result.Row) {
-					var obj = Activator.CreateInstance (map.MappedType);
+					var obj = Activator.CreateInstance (map.MappedType, true);
 					for (int i = 0; i < cols.Length; i++) {
 						if (cols[i] == null)
 							continue;
