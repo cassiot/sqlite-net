@@ -2414,7 +2414,7 @@ namespace SQLite
 						!propNames.Contains (p.Name) &&
 						p.CanRead && p.CanWrite &&
 						(p.GetMethod != null) && (p.SetMethod != null) &&
-						(p.GetMethod.IsPublic && p.SetMethod.IsPublic) &&
+						(p.GetMethod.IsPublic) &&
 						(!p.GetMethod.IsStatic) && (!p.SetMethod.IsStatic)
 					select p).ToList ();
 				foreach (var p in newProps) {
